@@ -1,0 +1,12 @@
+# work flow radsims_60/70
+
+# ./simulation.sh <id>
+
+# ./svdq_prep.sh <radsims_id>
+# also includes scripts to batch launch jobs: svdq_start_jobs.extra-long.sh, svdq_start_jobs.sh
+
+# ./snapp_prep.sh <radsims_id>
+
+# ./stats.sh
+
+# ./db_setup.sh

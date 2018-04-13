@@ -1,0 +1,33 @@
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//  Modified from: INDELible V1.03 control file - basic.txt                        //
+//                                                                                 //
+//    A complex introduction to the structure of the INDELible control file input  //
+//    for the INDELible_wrapper script distributed with SimPhy.                    //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+// It is useful to know that anything on a line after two forward slashes is ignored.
+
+/*
+   Anything after a forward slash and a star
+   is ignored until a star followed by a forward slash is again found.
+*/     
+
+[TYPE] NUCLEOTIDE 1	//  EVERY control file must begin with a [TYPE] command.
+			//  The value can be NUCLEOTIDE, AMINOACID or CODON and the algorithm used.
+[SETTINGS]
+/*
+        [fastaextension]	fasta  
+*/
+	[ancestralprint]	NEW    // Simulate ancestral sequence
+	
+[SIMPHY-UNLINKED-MODEL] rad_unlinked // [UNLINKED-MODEL] blocks have the same options than [MODEL] blocks, but they will generate independent models (sampling the parameter values) for every tree using this section 
+	[submodel] GTR $(rd:20,2,4,6,8,16) // 
+  	[statefreq] $(d:1,1,1,1) // frequencies for T C A G sampled from a Dirichlet (1,1,1,1)
+	[rates] 0 $(e:2) 0 // site-specific rate heterogeneities: 0 p-inv, alpha from an E(2) and using a continuous gamma distribution
+
+[SIMPHY-PARTITIONS] rad_partition [1 rad_unlinked 110] // All the gene families will evolve under the model "rad_unlinked". Their root sequence lengths will be 110 bp in all cases.
+
+
+[SIMPHY-EVOLVE] 1 data // One sequence alignment for each gene tree, saved in files with "dataset" as common prefix (it will generate dataset_1, dataset_2, etc.)
