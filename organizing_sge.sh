@@ -25,11 +25,9 @@ for folder in $(ls -d */); do
   # remove files from snapp
   rm *.xml
   rm *.xml.state
-  # maybe also delete or move to log files
-  # rm *ado_snps_reduced.o*
-  # rm *ado_snps_reduced.po*
-  # rm *concat_snps_reduced.o*
-  # rm *concat_snps_reduced.po*
+  # remove files from raxml
+  rm *.raxml.bestModel
+  rm *.raxml.startTree
   cd ..
 done
 echo "done."

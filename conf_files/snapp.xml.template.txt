@@ -19,7 +19,7 @@ name="rawdata">
 <map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
 <map name="OneOnX" >beast.math.distributions.OneOnX</map>
 
-<run id="mcmc" spec="MCMC" chainLength="1000000" storeEvery="1000">
+<run id="mcmc" spec="MCMC" chainLength="10000000" storeEvery="1000">
     <state id="state" storeEvery="1000">
         <stateNode id="Tree.{id}" spec="beast.util.ClusterTree" clusterType="upgma" nodetype="snap.NodeData">
             <taxa id="snap.{id}" spec="snap.Data" dataType="integerdata">
