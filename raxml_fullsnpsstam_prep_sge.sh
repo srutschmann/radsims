@@ -7,7 +7,7 @@
 
 BINDIR=/home/sereina/simulation/radsims_60/scripts
 
-python/3.6.3
+module load python/3.6.3
 
 date
 cd $1
@@ -22,7 +22,8 @@ for folder in $(seq -f "%03g" 001 002); do
     nuc=$(python3 $BINDIR/invariant_sites.py $file)
     echo "${nuc}" > ${pfx}_nuc_cnts.txt
     file=${pfx}_snps.fasta
-    cat > ${pfx}.raxml_fullsnpsstam.sge.sh <<EOL
+    pfxsnps=${file%.fasta}
+    cat > ${pfxsnps}.raxml_fullsnpsstam.sge.sh <<EOL
 #!/bin/bash
 #$ -cwd
 #$ -N fullsnpsstam.${pfx}
@@ -31,7 +32,7 @@ date
 module load bio/raxml-ng/0.5.1b
 
 echo "running raxml-ng..."
-raxml-ng --all --msa $file GTR+G+ASC_STAM{${nuc}} --tree rand{10} --threads 1 --prefix "${pfx}"
+raxml-ng --all --msa $file --model GTR+G+ASC_STAM{${nuc}} --tree rand{10} --threads 1 --prefix "${pfxsnps}_stam"
 
 date
 EOL

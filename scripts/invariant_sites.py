@@ -38,4 +38,4 @@ for i in range(num_sites):
       inv_sites[n] += 1
 
 # print output to STDOUT
-print(','.join([str(inv_sites[n]) for n in valid_nucs]), end='')
+print('/'.join([str(inv_sites[n]) for n in valid_nucs]), end='')
