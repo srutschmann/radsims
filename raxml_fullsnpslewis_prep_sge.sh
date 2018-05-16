@@ -5,9 +5,6 @@
 # script to generate raxml-ng job files
 # call script: raxml_fullsnpslewis_prep_sge.sh <folder> 2>&1 | tee <folder>.raxml_fullsnpslewis.log
 
-# to add
-# cat nuc_cnts.txt | while read wA wC wG wT; do echo "A: $wA"; echo "T: $wT"; break; done
-
 BINDIR=/home/sereina/simulation/radsims_60/scripts
 
 date
@@ -15,7 +12,6 @@ cd $1
 
 echo "preparing raxml job files..."
 for folder in $(ls -d */); do
-# for folder in $(seq -f "%03g" 001 002); do
   echo "  $folder"
   cd $folder
   for file in *_snps.fasta; do

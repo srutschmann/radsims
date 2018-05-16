@@ -24,12 +24,10 @@ module load biopython
 
 echo "preparing SNAPP input files and job scripts..."
 for folder in $(ls -d */); do
-# for folder in $(seq -f "%03g" 6 10); do # # to process some replicates i.e., 6-10
   echo "  ${folder}"
   cd $folder
   for file in *snps_reduced.nex; do
-    #ntax=$(perl -ne '/ntax=(\d+)/&&print $1' $file) # get number of taxa from NEXUS file
-    pfx=${file%.nex} # remove ".nex" suffix from file names, use this prefix to generate output filenames
+    pfx=${file%.nex}
 
   # generate SNAPP XML file ($pfx.snapp.xml)
   # echo "    ${SCRIPTS}/nex2snapp.py ${file} ${pfx}.snapp.xml ${CONF}/snapp.xml.template.txt 1>/dev/null"

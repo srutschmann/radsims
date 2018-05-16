@@ -12,7 +12,6 @@ cd $1
 
 echo "preparing raxml job files..."
 for folder in $(ls -d */); do
-# for folder in $(seq -f "%03g" 001 002); do
   echo "  $folder"
   cd $folder
   for file in *_concat*.phy; do

@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
   fn_input = sys.argv[1]
   if not os.path.exists(fn_input):
-    print("[ERROR] file '%s' does not exist." % fn_input, file=sys.stderr)
+    print("[ERROR] file '%s' does not exists." % fn_input, file=sys.stderr)
     sys.exit(1)
 
   if fn_input.endswith('phy'):

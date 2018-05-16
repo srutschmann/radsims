@@ -11,7 +11,6 @@ date
 cd $1
 
 # echo "generating svdq input files ..."
-# for folder in $(seq -f "%03g" 183 200); do # to process some replicates i.e., 183-200
 # for folder in $(ls -d */); do
   # echo "  $folder"
   # cd $folder
@@ -28,13 +27,12 @@ cd $1
 # done
 
 echo "preparing svdq master and job files..."
-for folder in $(seq -f "%03g" 001 002); do # to process some replicates i.e., 183-200
-# for folder in $(ls -d */); do
+for folder in $(ls -d */); do
   echo "  $folder"
   cd $folder
   for file in *_snps_reduced.nex; do
     # ntax=$(perl -ne '/ntax=(\d+)/&&print $1' $file) # get number of taxa from NEXUS file
-    pfx=${file%.nex} # remove ".nex" suffix from file names, use this prefix to generate output filenames
+    pfx=${file%.nex}
   # check number of taxa, for file in *.nex if ntaxa>200 replace 'evalQuartets=all' with 'evalQuartets=random nquartets=48603900'
   # generate master file
   # if [ $ntax -gt 200 ]; then
