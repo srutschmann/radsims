@@ -57,22 +57,22 @@ module load beagle-lib
 # if state file present: resume job
 resume=""
 if [[ -f ${pfx}.snapp.xml.state ]]; then
-  resume="-resume"
+  resume="-resume -overwrite"
 fi
 
 hostname
 date
 
 echo "running SNAPP..."
-echo "  beast ${resume} -threads ${cores} -beagle -beagle_CPU ${pfx}.snapp.xml"
+echo "  beast \${resume} -threads ${cores} -beagle -beagle_CPU ${pfx}.snapp.xml"
 
-beast ${resume} -threads ${cores} -beagle -beagle_CPU ${pfx}.snapp.xml
+beast \${resume} -threads ${cores} -beagle -beagle_CPU ${pfx}.snapp.xml
 
 date
 EOL
 
   #bash ${pfx}.snapp.sh # CAUTION: uncomment this line to run job in background
-  #qsub ${pfx}.snapp.sh # CAUTION: uncomment this line to submit jobs to cluster queue, check number of jobs that can be submitted
+  #sbatch ${pfx}.snapp.sh # CAUTION: uncomment this line to submit jobs to cluster queue, check number of jobs that can be submitted
   done
   cd ..
 done
