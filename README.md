@@ -24,7 +24,9 @@ Overview of scripts used to run the simulation, phylogenetic inferences, and pos
 ./simulation.sh <id>
 
 ### get stats and create job scripts for phylogenetic inferences (SLURM and SGE)
-./raxml_fullseq_sge.sh <id>
+./raxml_fullseq_prep_sge.sh
+./raxml_fullsnpslewis_prep_sge.sh
+./raxml_fullsnpsstam_prep_sge.sh
 ./snapp_prep_sge.sh <id>
 ./snapp_prep.sh <id>
 ./svdq_prep_sge_all.sh <id>

@@ -10,7 +10,7 @@ cd $1
 
 date
 
-echo "cleaning/re-organizing files..."
+echo "removing files..."
 
 for folder in $(ls -d */); do
   cd $folder
@@ -24,9 +24,16 @@ for folder in $(ls -d */); do
   # files from snapp
   rm *.xml
   rm *.xml.state
-  # files from raxml
+  # files from raxml-ng
   rm *.raxml.bestModel
+  rm *.raxml.mlTrees
   rm *.raxml.startTree
+  rm *snps.e*
+  rm *snps.o*
+  rm *concat_ado.e*
+  rm *concat_ado.o*
+  rm *concat.e*
+  rm *concat.o*
   cd ..
 done
 echo "done."
